@@ -235,7 +235,7 @@ public class ImpressionistView extends View {
                 }
                 else {
                     //uses lines to draw
-                    _offScreenCanvas.drawLine(touchX-_radius-5, touchY - _radius-5, touchX + _radius+5, touchY + _radius+5, _paint);
+                    _offScreenCanvas.drawLine(touchX-_radius, touchY - _radius, touchX + _radius, touchY + _radius, _paint);
                 }
         }
 
