@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             "http://www.cs.umd.edu/class/spring2016/cmsc434/assignments/IA08-AndroidII/Images/PurpleFlowerPlusButterfly_PhotoByJonFroehlich(Medium).JPG",
             "http://www.cs.umd.edu/class/spring2016/cmsc434/assignments/IA08-AndroidII/Images/WhiteFlower_PhotoByJonFroehlich(Medium).JPG",
             "http://www.cs.umd.edu/class/spring2016/cmsc434/assignments/IA08-AndroidII/Images/YellowFlower_PhotoByJonFroehlich(Medium).JPG",
+            "http://www.sports-logos-screensavers.com/user/Miami_Dolphins2.jpg",
+            "http://www.destination360.com/north-america/us/new-jersey/images/s/seaside-heights.jpg",
+            "https://quote.com/blog/wp-content/uploads/2016/06/american-flag.jpg",
     };
 
     @Override
@@ -160,14 +163,17 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
      * @param v
      */
     public void onButtonClickSave(View v){
+        //ContentValues values = new ContentValues();
+        FileUtils.verifyStoragePermissions(this);
+        //Bitmap b_map = _impressionistView.getBitmap();
+        MediaStore.Images.Media.insertImage(getContentResolver(),_impressionistView.getBitmap(),"Title","Description");
+        Toast.makeText(this, "Image Saved", Toast.LENGTH_SHORT).show();
+        //MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(),b_map,"NAME","DESC");
+        //getApplicationContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
-        Bitmap b_map = _impressionistView.getBitmap();
-        
-        MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(),b_map,"test","test");
 
-        /*ContentValues values = new ContentValues();
 
-        values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
+       /* values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
 
         getApplicationContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);*/

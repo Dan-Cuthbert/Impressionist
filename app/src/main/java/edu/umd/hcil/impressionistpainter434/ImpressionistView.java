@@ -23,9 +23,7 @@ import android.widget.ImageView;
 import java.text.MessageFormat;
 import java.util.Random;
 
-/**
- * Created by jon on 3/20/2016.
- */
+
 public class ImpressionistView extends View {
 
     //contains image which drawing resembles
@@ -175,19 +173,6 @@ public class ImpressionistView extends View {
 
         switch(motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                //if velocity is being used for brush
-                if(_brushType == BrushType.Square){
-                    if(mVelocityTracker == null) {
-                        // Retrieve a new VelocityTracker object to track velocity
-                        mVelocityTracker = VelocityTracker.obtain();
-                    }
-                    else {
-                        // Reset the velocity tracker
-                        mVelocityTracker.clear();
-                    }
-                    //starts tracking the motionevent
-                    mVelocityTracker.addMovement(motionEvent);
-                }
 
                 //checks if random brush is selected
                 if(_random == true){
@@ -205,6 +190,20 @@ public class ImpressionistView extends View {
                     } else {
                         _brushType = BrushType.Line;
                     }
+                }
+
+                //if velocity is being used for brush
+                if(_brushType == BrushType.Square){
+                    if(mVelocityTracker == null) {
+                        // Retrieve a new VelocityTracker object to track velocity
+                        mVelocityTracker = VelocityTracker.obtain();
+                    }
+                    else {
+                        // Reset the velocity tracker
+                        mVelocityTracker.clear();
+                    }
+                    //starts tracking the motionevent
+                    mVelocityTracker.addMovement(motionEvent);
                 }
             case MotionEvent.ACTION_MOVE:
 
